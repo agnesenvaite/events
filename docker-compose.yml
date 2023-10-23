@@ -27,6 +27,17 @@ services:
       retries: 5
       start_period: 5s
 
+  sql-migrate:
+    build:
+      context: .
+      dockerfile: docker/images/sql_migrate/Dockerfile
+    volumes:
+      - ./:/usr/src/events
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+
 volumes:
   mysql_data:
     driver: local

@@ -11,13 +11,13 @@ import (
 )
 
 type createRequest struct {
-	Name           string    `json:"name"`
-	Date           time.Time `json:"date"`
-	Languages      []string  `json:"languages" enums:"english,lithuanian,dutch"`
-	VideoQualities []string  `json:"video_qualities" enums:"720p,1080p,2160p"`
-	AudioQualities []string  `json:"audio_qualities" enums:"high,medium,low"`
-	Invitees       []string  `json:"invitees"`
-	Description    *string   `json:"description,omitempty"`
+	Name           string    `json:"name" example:"Very important meeting"`
+	Date           time.Time `json:"date" example:"2023-11-01T10:00:00.000Z"`
+	Languages      []string  `json:"languages" enums:"english,lithuanian,dutch" example:"english"`
+	VideoQualities []string  `json:"video_qualities" enums:"720p,1080p,2160p" example:"720p"`
+	AudioQualities []string  `json:"audio_qualities" enums:"high,medium,low" example:"low"`
+	Invitees       []string  `json:"invitees" example:"agne.senvaite@gmail.com,agne.senvaite+1@gmail.com"`
+	Description    *string   `json:"description,omitempty" example:"Very important meeting, everyone must attend"`
 }
 
 func (r *createRequest) toCommand() *event.CreateCommand {
@@ -92,7 +92,7 @@ func (r *createRequest) validate(maxInvitees int) error {
 		validation.Field(
 			&r.Invitees,
 			validation.Required,
-			validation.Length(1, maxInvitees),
+			validation.Length(2, maxInvitees),
 			validation.Each(is.Email, validation.Length(1, 100)),
 		),
 		validation.Field(&r.Description, validation.Length(1, 1000)),

@@ -182,19 +182,28 @@ const docTemplate = `{
                             "medium",
                             "low"
                         ]
-                    }
+                    },
+                    "example": [
+                        "low"
+                    ]
                 },
                 "date": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2023-11-01T10:00:00.000Z"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Very important meeting, everyone must attend"
                 },
                 "invitees": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "example": [
+                        "agne.senvaite@gmail.com",
+                        "agne.senvaite+1@gmail.com"
+                    ]
                 },
                 "languages": {
                     "type": "array",
@@ -205,10 +214,14 @@ const docTemplate = `{
                             "lithuanian",
                             "dutch"
                         ]
-                    }
+                    },
+                    "example": [
+                        "english"
+                    ]
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Very important meeting"
                 },
                 "video_qualities": {
                     "type": "array",
@@ -219,7 +232,10 @@ const docTemplate = `{
                             "1080p",
                             "2160p"
                         ]
-                    }
+                    },
+                    "example": [
+                        "720p"
+                    ]
                 }
             }
         },

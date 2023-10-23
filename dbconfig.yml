@@ -1,6 +1,6 @@
 development:
   dialect: mysql
-  datasource: "root:secret@tcp(localhost:33060)/event?parseTime=true&multiStatements=true"
+  datasource: "root:secret@tcp(mysql:3306)/event?parseTime=true&multiStatements=true"
   dir: migrations
   table: schema_migrations
 production:

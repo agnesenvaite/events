@@ -8,7 +8,6 @@
    instructions.
 2. Run ```docker compose up -d``` to start development server.
 3. API should now be accessible through http://localhost:8080/v1/status/ping
-4. Run initial migrations script `make migrate-init`
 
 
 ## Migrations
